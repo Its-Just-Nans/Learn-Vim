@@ -1,7 +1,8 @@
 #!/bin/bash
 
-cp *.md book/src/
-cd book
+cd book/src/
+ln -s ../../ch*.md .
+cd ..
 mdbook build
 cd ..
 cp -R book/output dist/
