@@ -34,7 +34,8 @@ jobs:
                   persist-credentials: false
             - name: Setup Pages
               uses: actions/configure-pages@v5
-            - run: cargo install mdbook --no-default-features
+            - uses: cargo-bins/cargo-binstall@main
+            - run: cargo binstall mdbook --no-default-features
             - name: build
               run: ./.github/build.sh
             - name: Upload artifact
