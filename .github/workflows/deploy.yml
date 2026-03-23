@@ -29,17 +29,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout typst
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
               with:
                   persist-credentials: false
             - name: Setup Pages
               uses: actions/configure-pages@v5
             - uses: cargo-bins/cargo-binstall@main
-            - run: cargo binstall mdbook --no-default-features
+            - run: cargo binstall mdbook
             - name: build
               run: ./.github/build.sh
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-pages-artifact@v4
               with:
                   path: "dist"
             - name: Deploy to GitHub Pages
